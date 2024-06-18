@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mcqgenerator
+Version: 0.0.1
+Author: hotrod46
+Author-email: aryanjain4623@gmail.com
+Requires-Dist: langchain
+Requires-Dist: streamlit
+Requires-Dist: python-dotenv
+Requires-Dist: PyPDF2
+Requires-Dist: langchain-google-genai
+Requires-Dist: langchain-groq
