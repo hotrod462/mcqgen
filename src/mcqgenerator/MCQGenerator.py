@@ -29,7 +29,7 @@ chat_model = ChatGroq(
     model="mixtral-8x7b-32768",
      api_key=os.getenv("GROQ_API_KEY") # Optional if not set as an environment variable
 )
-gen_template="""
+gen_template=r"""
 Text:{text}
 You are an expert MCQ maker. Given the above text, it is your job to \
 create a quiz  of {number} multiple choice questions for {subject} students in {tone} tone. 
@@ -40,6 +40,7 @@ Ensure to make {number} MCQs
 {response_json}
 
 The json keys and values MUST be in double quotes(""). Ensure once again that the json keys and values are encased in double quotes("")
+The format is slightly wrong, dont put every key on a new line. Specifically, i dont want any \n characters in the output
 
 """
 

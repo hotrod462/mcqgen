@@ -7,6 +7,9 @@ from src.mcqgenerator.utils import read_file, get_table_data
 import streamlit as st
 from src.mcqgenerator.logger import logging
 from src.mcqgenerator.MCQGenerator import quiz_chain
+from langchain.schema.messages import AIMessage
+
+
 
 #Load json file to be used in prompt
 with open("Z:\mcqgen\Response.json", 'r') as file:
@@ -55,7 +58,7 @@ with st.form("user_inputs"):
                 st.error("error :( ")
 
             else:
-                if isinstance(response,dict):
+                if isinstance(response, AIMessage):
                     #extract quiz data from response
                     quiz=response.content
                     if quiz is not None:
@@ -69,4 +72,5 @@ with st.form("user_inputs"):
                             st.error("Error in the table data")
 
                 else:
+                    st.text_area("Something broke :( ")
                     st.write(response)                        
